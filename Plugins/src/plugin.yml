@@ -1,0 +1,84 @@
+name: TownlandPlugin
+version: 1.16.5
+autor: Townland
+main: fr.Townland.Main.Main
+commands:
+  setBVN:
+    description: setup le nombre de bienvenue dans la bdd
+    permission: setBVN.use
+  test:
+    description: pour efectuer des tests de commandes
+    permission: test.use
+  rank:
+    description: changer un joueur de grade
+  givexp:
+    description: give de l'xp du métier choisi
+  removexp:
+    description: remove de l'xp du métier choisi
+  getxp:
+    description: get son xp du métier choisi
+  joinwork:
+    description: rejoindre un métier
+  leavework:
+    description: quitter un métier
+#modération
+  vanish:
+    description: vanish
+  cclear:
+    description: clear le chat
+  report:
+    description: report un joueur
+  freeze:
+    description: freeze quelqu'un
+  unfreeze:
+    description: unfreeze quelqu'un
+  ban:
+    description: ban quelqu'un
+  banlist:
+    description: list des bans
+  tempban:
+    description: tempban
+  unban:
+    description: unban
+  fly:
+    description: pour fly
+  tp:
+    description: se tp à quelqu'un
+  kick:
+    description: kick
+  clear:
+    description: clear
+  invsee:
+    description: invsee
+  gamemode:
+    description: se mettre en gamemode
+  give:
+    description: se give des trucs
+  mute:
+    description: mute
+  unmute:
+    description: unmute
+  #éconnomie
+  coins:
+    description: coins
+  home:
+    description: home
+  sethome:
+    description: sethome
+  delhome:
+    description: delhome
+  spawn:
+    description: spawn
+  setspawn:
+    description: setspawn
+  delspawn:
+    description: delspawn
+  check:
+    description: check
+  #help
+  help:
+    description: envoie le msg d'aide
+  helpWork:
+    description: envoie le msg d'aide pour les métiers
+api-version: 1.16
+

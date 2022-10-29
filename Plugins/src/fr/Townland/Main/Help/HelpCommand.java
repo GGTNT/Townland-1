@@ -32,15 +32,15 @@ public class HelpCommand implements CommandExecutor {
 
                 //msg modération
                 TextComponent msgHelpModoTest = new TextComponent("§2Commandes modération " + "§9>>");
-                msgHelp1.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
+                msgHelpModoTest.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
                 TextComponent msgHelpModo = new TextComponent("§2Commandes modération " + "§9>>");
-                msgHelp1.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
+                msgHelpModo.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
                 TextComponent msgHelpSM = new TextComponent("§2Commandes modération " + "§9>>");
-                msgHelp1.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
+                msgHelpSM.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
                 TextComponent msgHelpAdmin = new TextComponent("§2Commandes modération " + "§9>>");
-                msgHelp1.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
+                msgHelpAdmin.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
                 TextComponent msgHelpFondateur = new TextComponent("§2Commandes modération " + "§9>>");
-                msgHelp1.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
+                msgHelpFondateur.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/helpModo"));
 
                 //récupère power
                 int ranklvl = 0;

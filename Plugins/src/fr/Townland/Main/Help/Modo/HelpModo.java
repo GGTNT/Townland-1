@@ -197,10 +197,10 @@ public class HelpModo implements CommandExecutor {
                                 player.sendMessage("§2============HelpSM============");
                                 player.sendMessage("/getwork <joueur>");
                                 player.sendMessage("/getxp <métier> <joueur>");
-                                player.sendMessage("/givexp <métier> <joueur>");
+                                player.sendMessage("/givexp <métier> <joueur> <nombre>");
                                 player.sendMessage("/joinwork <métier> <joueur>");
                                 player.sendMessage("/leavework <métier> <joueur>");
-                                player.sendMessage("/removexpwork <métier> <joueur>");
+                                player.sendMessage("/removexp <métier> <joueur> <nombre>");
                                 player.sendMessage("§2============================");
                                 break;
 
@@ -208,10 +208,10 @@ public class HelpModo implements CommandExecutor {
                                 player.sendMessage("§2============HelpAdmin============");
                                 player.sendMessage("/getwork <joueur>");
                                 player.sendMessage("/getxp <métier> <joueur>");
-                                player.sendMessage("/givexp <métier> <joueur>");
+                                player.sendMessage("/givexp <métier> <joueur> <nombre>");
                                 player.sendMessage("/joinwork <métier> <joueur>");
                                 player.sendMessage("/leavework <métier> <joueur>");
-                                player.sendMessage("/removexpwork <métier> <joueur>");
+                                player.sendMessage("/removexp <métier> <joueur> <nombre>");
                                 player.sendMessage("§2============================");
                                 break;
 
@@ -219,10 +219,10 @@ public class HelpModo implements CommandExecutor {
                                 player.sendMessage("§2============HelpFonda============");
                                 player.sendMessage("/getwork <joueur>");
                                 player.sendMessage("/getxp <métier> <joueur>");
-                                player.sendMessage("/givexp <métier> <joueur>");
+                                player.sendMessage("/givexp <métier> <joueur> <nombre>");
                                 player.sendMessage("/joinwork <métier> <joueur>");
                                 player.sendMessage("/leavework <métier> <joueur>");
-                                player.sendMessage("/removexp <métier> <joueur>");
+                                player.sendMessage("/removexp <métier> <joueur> <nombre>");
                                 player.sendMessage("§2============================");
                                 break;
                         }

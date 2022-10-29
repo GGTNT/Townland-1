@@ -102,20 +102,21 @@ public class Main extends JavaPlugin implements Listener {
 		getCommand("spawn").setExecutor(new Spawn(rank,this));
 		getCommand("delspawn").setExecutor(new Spawn(rank,this));
 		getCommand("setspawn").setExecutor(new Spawn(rank,this));
-		//commandes
 		getCommand("setbvn").setExecutor(new SetupBVNCommand(rank, requestBvn));
+		//métiers
 		getCommand("givexp").setExecutor(new GiveXpWorkCommand(rank, hashMapFarmer));
-		getCommand("removexp").setExecutor(new RemoveXpWorkCommand(hashMapFarmer, rank));
+		getCommand("removexp").setExecutor(new RemoveXpCommand(hashMapFarmer, rank));
 		getCommand("getxp").setExecutor(new GetXpWorkCommand(rank, hashMapFarmer));
 		getCommand("test").setExecutor(new TestCommand(bienvenue));
 		getCommand("rank").setExecutor(new RankCommand(rank));
 		getCommand("joinwork").setExecutor(new JoinWorkCommand(requestFarmer, hashMapFarmer, rank));
 		getCommand("leavework").setExecutor(new LeaveWorkCommand(requestFarmer, hashMapFarmer, rank));
+		getCommand("getwork").setExecutor(new GetWorkCommand(rank, hashMapFarmer));
 		//Modération
 		getCommand("vanish").setExecutor(new VanishCommand(this,rank));
 		getCommand("cclear").setExecutor(new ClearChat(rank));
-		getCommand("freeze").setExecutor(this);
-		getCommand("unfreeze").setExecutor(this);
+		getCommand("freeze").setExecutor(new Freeze(rank, this));
+		getCommand("unfreeze").setExecutor(new Freeze(rank, this));
 		getCommand("ban").setExecutor(new BanCommand());
 		getCommand("fly").setExecutor(new Fly(rank));
 		getCommand("tp").setExecutor(new Tp(rank));
@@ -135,7 +136,6 @@ public class Main extends JavaPlugin implements Listener {
 		getCommand("helpModo").setExecutor(new HelpModo(rank));
 
 		System.out.println("TownlandPlugin allume");
-		System.out.println("TownlandPlugin allume 2");
 
 		//remettre les métiers et xp de farmer en cas de relancement
 		farmer.setupFarmerXP();

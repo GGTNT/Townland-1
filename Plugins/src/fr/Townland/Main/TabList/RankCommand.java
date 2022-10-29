@@ -168,7 +168,7 @@ public final class RankCommand implements CommandExecutor {
                     r = 7;
                     rang = "§4Administrateur";
                 }
-                if (args[1].equalsIgnoreCase("fondateur")){
+                if (args[1].equalsIgnoreCase("fondateur") || args[1].equalsIgnoreCase("fonda")){
                     r = 8;
                     rang = "§1Fondateur";
                 }

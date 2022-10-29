@@ -80,5 +80,7 @@ commands:
     description: envoie le msg d'aide
   helpWork:
     description: envoie le msg d'aide pour les métiers
+  helpModo:
+    description: envoie le msg d'aide pour les commandes de modération
 api-version: 1.16
 

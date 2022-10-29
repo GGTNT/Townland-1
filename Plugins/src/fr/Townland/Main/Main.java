@@ -1,4 +1,5 @@
 package fr.Townland.Main;
+import fr.Townland.Main.Help.Modo.HelpModo;
 import fr.Townland.Main.Moderation.command.Bans.BanCommand;
 import fr.Townland.Main.Moderation.command.Bans.BanManager;
 import fr.Townland.Main.Moderation.command.Bans.PlayerInfos;
@@ -129,10 +130,12 @@ public class Main extends JavaPlugin implements Listener {
 		getCommand("check").setExecutor(new BanCommand());
 
 		//commande help
-		getCommand("help").setExecutor(new HelpCommand());
+		getCommand("help").setExecutor(new HelpCommand(rank));
 		getCommand("helpWork").setExecutor(new HelpWork());
+		getCommand("helpModo").setExecutor(new HelpModo(rank));
 
 		System.out.println("TownlandPlugin allume");
+		System.out.println("TownlandPlugin allume 2");
 
 		//remettre les métiers et xp de farmer en cas de relancement
 		farmer.setupFarmerXP();

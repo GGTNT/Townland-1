@@ -52,6 +52,7 @@ public class CoinsCommand implements CommandExecutor {
                         }else {
                             try {
                                 targetInfo.removeCoins(amount);
+                                player.sendMessage("§eVous avez retiré §b" + amount + " coins à §6" + target.getName());
                                 target.sendMessage( player.getName() + " §evous a retiré §6" + amount + " coins");
                             } catch (NumberFormatException e) {
                                 player.sendMessage("§cVeuillez entrer un nombre valide.");

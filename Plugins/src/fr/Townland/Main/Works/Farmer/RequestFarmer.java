@@ -170,7 +170,7 @@ public class RequestFarmer {
 
         try {
 
-            PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("INSERT INTO pumpkin_location (coLocationPumpkin, PumpkinX, PumpkinY, PumpkinZ, WorldPumpkin P) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("INSERT INTO pumpkin_location (coLocationPumpkin, PumpkinX, PumpkinY, PumpkinZ, WorldPumpkin, P) VALUES (?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, location.toString());
             preparedStatement.setInt(2, location.getBlockX());
             preparedStatement.setInt(3, location.getBlockY());

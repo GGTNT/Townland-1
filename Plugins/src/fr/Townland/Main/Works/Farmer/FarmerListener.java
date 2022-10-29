@@ -4,6 +4,7 @@ import fr.Townland.Main.TabList.Rank;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -163,15 +164,9 @@ public class FarmerListener implements Listener {
 
         //supression dans la bdd les blocks cultures meme si pas farmeur
         if (!hashMapFarmer.getWork(event.getPlayer())) {
-            if (event.getBlock().getType() == Material.SUGAR_CANE) {
-                hashMapFarmer.getCoSugarCanne().remove(event.getBlock().getLocation());
-            }
-            if (event.getBlock().getType() == Material.MELON) {
-                hashMapFarmer.getCoMelon().remove(event.getBlock().getLocation());
-            }
-            if (event.getBlock().getType() == Material.PUMPKIN) {
-                hashMapFarmer.getCoPumpkin().remove(event.getBlock().getLocation());
-            }
+            RemoveCoMelon(event);
+            RemoveCoPumpkin(event);
+            RemoveCoSugar(event);
         }
 
         if (event.getBlock().getType() == Material.WHEAT || event.getBlock().getType() == Material.CARROTS || event.getBlock().getType() == Material.POTATOES || event.getBlock().getType() == Material.BEETROOTS || event.getBlock().getType() == Material.PUMPKIN || event.getBlock().getType() == Material.MELON || event.getBlock().getType() == Material.SUGAR_CANE || event.getBlock().getType() == Material.COCOA) {
@@ -179,9 +174,13 @@ public class FarmerListener implements Listener {
             if (hashMapFarmer.getWork(event.getPlayer())) {
                 Player player = event.getPlayer();
                 int XP = hashMapFarmer.getXPFarmer(player);
-
                 //lvl1
                 if (XP < 10000) {
+
+                    RemoveCoMelon(event);
+                    RemoveCoPumpkin(event);
+                    RemoveCoSugar(event);
+
                     if (event.getBlock().getType() == Material.WHEAT) {
                         if (farmer.isFullyGrown(event.getBlock())) {
                             hashMapFarmer.addXPFarmer(player, 10);
@@ -194,6 +193,11 @@ public class FarmerListener implements Listener {
                 //lvl2
                 if (XP >= 10000) {
                     if (XP < 30000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoPumpkin(event);
+                        RemoveCoSugar(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 10);
@@ -207,6 +211,11 @@ public class FarmerListener implements Listener {
                     //lvl3
                     if (XP >= 30000) {
                         if (XP < 60000) {
+
+                            RemoveCoMelon(event);
+                            RemoveCoPumpkin(event);
+                            RemoveCoSugar(event);
+
                             if (event.getBlock().getType() == Material.WHEAT) {
                                 if (farmer.isFullyGrown(event.getBlock())) {
                                     hashMapFarmer.addXPFarmer(player, 10);
@@ -221,6 +230,11 @@ public class FarmerListener implements Listener {
                     //lvl4
                     if (XP >= 60000) {
                         if (XP < 100000) {
+
+                            RemoveCoMelon(event);
+                            RemoveCoPumpkin(event);
+                            RemoveCoSugar(event);
+
                             if (event.getBlock().getType() == Material.CARROTS) {
                                 if (farmer.isFullyGrown(event.getBlock())) {
                                     hashMapFarmer.addXPFarmer(player, 10);
@@ -252,6 +266,11 @@ public class FarmerListener implements Listener {
                 //lvl5
                 if (XP >= 100000) {
                     if (XP < 150000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoPumpkin(event);
+                        RemoveCoSugar(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -283,6 +302,11 @@ public class FarmerListener implements Listener {
                 //lvl6
                 if (XP >= 150000) {
                     if (XP < 220000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoPumpkin(event);
+                        RemoveCoSugar(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -313,6 +337,11 @@ public class FarmerListener implements Listener {
                 //lvl7
                 if (XP >= 220000) {
                     if (XP < 300000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoPumpkin(event);
+                        RemoveCoSugar(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -351,6 +380,11 @@ public class FarmerListener implements Listener {
                 //lvl8
                 if (XP >= 300000) {
                     if (XP < 400000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoPumpkin(event);
+                        RemoveCoSugar(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -373,6 +407,10 @@ public class FarmerListener implements Listener {
                 //lvl9
                 if (XP >= 400000) {
                     if (XP < 550000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoPumpkin(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -390,7 +428,7 @@ public class FarmerListener implements Listener {
                             }
                         }
                         if (event.getBlock().getType() == Material.SUGAR_CANE) {
-                            if (hashMapFarmer.getCoSugarCanne().contains(event.getBlock().getLocation())) {
+                            if (!hashMapFarmer.getCoSugarCanne().contains(event.getBlock().getLocation())) {
                                 hashMapFarmer.addXPFarmer(player, 10);
                                 player.sendMessage("§a+10xp ");
                                 farmer.messageLevelUp(event.getPlayer(), 550000, "§2Bravo tu es passé niveau 9 !!", false);
@@ -407,6 +445,10 @@ public class FarmerListener implements Listener {
                 //lvl10
                 if (XP >= 550000) {
                     if (XP < 720000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoPumpkin(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -424,7 +466,7 @@ public class FarmerListener implements Listener {
                             }
                         }
                         if (event.getBlock().getType() == Material.SUGAR_CANE) {
-                            if (hashMapFarmer.getCoSugarCanne().contains(event.getBlock().getLocation())) {
+                            if (!hashMapFarmer.getCoSugarCanne().contains(event.getBlock().getLocation())) {
                                 hashMapFarmer.addXPFarmer(player, 10);
                                 player.sendMessage("§a+10xp ");
                                 farmer.messageLevelUp(event.getPlayer(), 550000, "§2Bravo tu es passé niveau 10 !!", true);
@@ -441,6 +483,9 @@ public class FarmerListener implements Listener {
                 //lvl11
                 if (XP >= 720000) {
                     if (XP < 900000) {
+
+                        RemoveCoMelon(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -458,7 +503,7 @@ public class FarmerListener implements Listener {
                             }
                         }
                         if (event.getBlock().getType() == Material.PUMPKIN) {
-                            if (hashMapFarmer.getCoPumpkin().contains(event.getBlock().getLocation())) {
+                            if (!hashMapFarmer.getCoPumpkin().contains(event.getBlock().getLocation())) {
                                 hashMapFarmer.addXPFarmer(player, 15);
                                 player.sendMessage("§a+15xp ");
                                 farmer.messageLevelUp(event.getPlayer(), 900000, "&2Bravo tu es passé niveau 11 !!", false);
@@ -470,7 +515,7 @@ public class FarmerListener implements Listener {
                             }
                         }
                         if (event.getBlock().getType() == Material.SUGAR_CANE) {
-                            if (hashMapFarmer.getCoSugarCanne().contains(event.getBlock().getLocation())) {
+                            if (!hashMapFarmer.getCoSugarCanne().contains(event.getBlock().getLocation())) {
                                 hashMapFarmer.addXPFarmer(player, 5);
                                 player.sendMessage("§a+5xp ");
                                 farmer.messageLevelUp(event.getPlayer(), 550000, "§2Bravo tu es passé niveau 11 !!", false);
@@ -487,6 +532,10 @@ public class FarmerListener implements Listener {
                 //lvl12
                 if (XP >= 900000) {
                     if (XP < 1100000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoSugar(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -497,7 +546,7 @@ public class FarmerListener implements Listener {
                             }
                         }
                         if (event.getBlock().getType() == Material.PUMPKIN) {
-                            if (hashMapFarmer.getCoPumpkin().contains(event.getBlock().getLocation())) {
+                            if (!hashMapFarmer.getCoPumpkin().contains(event.getBlock().getLocation())) {
                                 hashMapFarmer.addXPFarmer(player, 15);
                                 player.sendMessage("§a+15xp ");
                                 farmer.messageLevelUp(event.getPlayer(), 1100000, "§2Bravo tu es passé niveau 12 !!", false);
@@ -514,6 +563,10 @@ public class FarmerListener implements Listener {
                 //lvl13
                 if (XP >= 1100000) {
                     if (XP < 1350000) {
+
+                        RemoveCoMelon(event);
+                        RemoveCoSugar(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -523,7 +576,7 @@ public class FarmerListener implements Listener {
                             }
                         }
                         if (event.getBlock().getType() == Material.PUMPKIN) {
-                            if (hashMapFarmer.getCoPumpkin().contains(event.getBlock().getLocation())) {
+                            if (!hashMapFarmer.getCoPumpkin().contains(event.getBlock().getLocation())) {
                                 hashMapFarmer.addXPFarmer(player, 10);
                                 player.sendMessage("§a+10xp ");
                                 farmer.messageLevelUp(event.getPlayer(), 1350000, "§2Bravo tu es passé niveau 13 !!", false);
@@ -540,6 +593,10 @@ public class FarmerListener implements Listener {
                 //lvl14
                 if (XP >= 1350000) {
                     if (XP < 1600000) {
+
+                        RemoveCoPumpkin(event);
+                        RemoveCoSugar(event);
+
                         if (event.getBlock().getType() == Material.WHEAT) {
                             if (farmer.isFullyGrown(event.getBlock())) {
                                 hashMapFarmer.addXPFarmer(player, 2);
@@ -562,6 +619,11 @@ public class FarmerListener implements Listener {
                     //lv15
                     if (XP >= 1600000) {
                         if (XP < 1850000) {
+
+                            RemoveCoPumpkin(event);
+                            RemoveCoSugar(event);
+
+                            System.out.println("5");
                             if (event.getBlock().getType() == Material.WHEAT) {
                                 if (farmer.isFullyGrown(event.getBlock())) {
                                     hashMapFarmer.addXPFarmer(player, 2);
@@ -571,7 +633,7 @@ public class FarmerListener implements Listener {
                                 }
                             }
                             if (event.getBlock().getType() == Material.MELON) {
-                                if (hashMapFarmer.getCoMelon().contains(event.getBlock().getLocation())) {
+                                if (!hashMapFarmer.getCoMelon().contains(event.getBlock().getLocation())) {
                                     hashMapFarmer.addXPFarmer(player, 15);
                                     player.sendMessage("§a+15xp ");
                                     farmer.messageLevelUp(event.getPlayer(), 1850000, "§2Bravo tu es passé niveau 15 !!", true);
@@ -585,6 +647,10 @@ public class FarmerListener implements Listener {
                     //lvl16
                     if (XP >= 1850000) {
                         if (XP < 2100000) {
+
+                            RemoveCoPumpkin(event);
+                            RemoveCoSugar(event);
+
                             if (event.getBlock().getType() == Material.WHEAT) {
                                 if (farmer.isFullyGrown(event.getBlock())) {
                                     hashMapFarmer.addXPFarmer(player, 2);
@@ -594,7 +660,7 @@ public class FarmerListener implements Listener {
                                 }
                             }
                             if (event.getBlock().getType() == Material.MELON) {
-                                if (hashMapFarmer.getCoMelon().contains(event.getBlock().getLocation())) {
+                                if (!hashMapFarmer.getCoMelon().contains(event.getBlock().getLocation())) {
                                     hashMapFarmer.addXPFarmer(player, 10);
                                     player.sendMessage("§a+10xp ");
                                     farmer.messageLevelUp(event.getPlayer(), 21000000, "§2Bravo tu es passé niveau 16 !!", false);
@@ -611,6 +677,11 @@ public class FarmerListener implements Listener {
                     //lvl17
                     if (XP >= 2100000) {
                         if (XP < 2400000) {
+
+                            RemoveCoMelon(event);
+                            RemoveCoPumpkin(event);
+                            RemoveCoSugar(event);
+
                             if (event.getBlock().getType() == Material.WHEAT) {
                                 if (farmer.isFullyGrown(event.getBlock())) {
                                     hashMapFarmer.addXPFarmer(player, 2);
@@ -633,6 +704,11 @@ public class FarmerListener implements Listener {
                     //lvl18
                     if (XP >= 2400000) {
                         if (XP < 2700000) {
+
+                            RemoveCoMelon(event);
+                            RemoveCoPumpkin(event);
+                            RemoveCoSugar(event);
+
                             if (event.getBlock().getType() == Material.WHEAT) {
                                 if (farmer.isFullyGrown(event.getBlock())) {
                                     hashMapFarmer.addXPFarmer(player, 2);
@@ -655,6 +731,11 @@ public class FarmerListener implements Listener {
                     //lvl19
                     if (XP >= 2700000) {
                         if (XP < 3000000) {
+
+                            RemoveCoMelon(event);
+                            RemoveCoPumpkin(event);
+                            RemoveCoSugar(event);
+
                             if (event.getBlock().getType() == Material.WHEAT) {
                                 if (farmer.isFullyGrown(event.getBlock())) {
                                     hashMapFarmer.addXPFarmer(player, 10);
@@ -669,6 +750,11 @@ public class FarmerListener implements Listener {
                     //lvl20
                     if (XP >= 3000000) {
                         if (XP < 3500000) {
+
+                            RemoveCoMelon(event);
+                            RemoveCoPumpkin(event);
+                            RemoveCoSugar(event);
+
                             if (event.getBlock().getType() == Material.WHEAT) {
                                 if (farmer.isFullyGrown(event.getBlock())) {
                                     hashMapFarmer.addXPFarmer(player, 10);
@@ -678,16 +764,9 @@ public class FarmerListener implements Listener {
                             }
                         }
                     }
-                    if (event.getBlock().getType() == Material.SUGAR_CANE) {
-                        hashMapFarmer.getCoSugarCanne().remove(event.getBlock().getLocation());
-                    }
-                    if (event.getBlock().getType() == Material.MELON) {
-                        //requestFarmer.removeMelon(event.getBlock().getLocation());
-                        hashMapFarmer.getCoMelon().remove(event.getBlock().getLocation());
-                    }
-                    if (event.getBlock().getType() == Material.PUMPKIN) {
-                        hashMapFarmer.getCoPumpkin().remove(event.getBlock().getLocation());
-                    }
+                    RemoveCoMelon(event);
+                    RemoveCoPumpkin(event);
+                    RemoveCoSugar(event);
                 }
             }
         }
@@ -775,4 +854,28 @@ public class FarmerListener implements Listener {
                 }
             }
         }
+
+        //break bloc co
+        public void RemoveCoMelon(BlockBreakEvent event){
+            if (event.getBlock().getType() == Material.MELON) {
+                hashMapFarmer.getCoMelon().remove(event.getBlock().getLocation());
+            }
+        }
+
+    public void RemoveCoPumpkin(BlockBreakEvent event){
+        if (event.getBlock().getType() == Material.PUMPKIN) {
+            hashMapFarmer.getCoPumpkin().remove(event.getBlock().getLocation());
+        }
+    }
+
+    public void RemoveCoSugar(BlockBreakEvent event){
+        if (event.getBlock().getType() == Material.SUGAR_CANE) {
+            hashMapFarmer.getCoSugarCanne().remove(event.getBlock().getLocation());
+        }
+    }
+
+
+
+
+
     }

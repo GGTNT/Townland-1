@@ -228,28 +228,28 @@ public class HelpWork implements CommandExecutor {
 
                         if (args[1].equalsIgnoreCase("XP")){
 
-                            player.sendMessage("§2============XP Farmer============");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires : 1 blé récolté = 5xp, 1 pain fabriqué = 5xp, 1 carotte récolté = 10xp, 1 pomme de terre récolté = 10xp");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires : 1 blé récolté = 2xp, 1 carotte récolté = 10xp, 1 pomme de terre récolté = 10xp");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires : 1 blé récolté = 2xp, 1 carotte récolté = 10xp, 1 pomme de terre récolté = 10xp");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires : 1 blé récolté = 2xp, 1 carotte récolté = 5xp, 1 pomme de terre récolté = 5xp, 1 betterave récolté = 15xp");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires : 1 blé récolté = 2xp, 1 betterave récolté = 15xp");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires : 1 blé récolté = 2xp, 1 betterave récolté = 10xp, 1 canne à sucre récolté = 10xp");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires : 1 blé récolté = 2xp, 1 betterave récolté = 10xp, 1 canne à sucre récolté = 10xp");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires : 1 blé récolté = 2xp, 1 betterave récolté = 5xp, 1 canne à sucre récolté = 5xp, 1 citrouille récolté = 15xp");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires : 1 blé récolté = 2xp, 1 citrouille récolté = 15xp");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires : 1 blé récolté = 2xp, 1 citrouille récolté = 10xp");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires : 1 blé récolté = 2xp, 1 pastèque récolté = 15xp");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires : 1 blé récolté = 2xp, 1 pastèque récolté = 15xp");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires : 1 blé récolté = 2xp, 1 pastèque récolté = 10xp");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires : 1 blé récolté = 2xp, 1 cacao récolté = 15xp");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires : 1 blé récolté = 2xp, 1 cacao récolté = 15xp");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
-                            player.sendMessage("§2=================================");
+                            player.sendMessage("§2=============================XP Farmer=============================");
+                            player.sendMessage("- Niveau 0 --> Niveau 1: 10 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
+                            player.sendMessage("- Niveau 1 --> Niveau 2: 30 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
+                            player.sendMessage("- Niveau 3 --> Niveau 4 : 100 000xp nécessaires : 1 blé récolté = 5xp, 1 pain fabriqué = 5xp, 1 carotte récolté = 10xp, 1 pomme de terre récolté = 10xp");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires : 1 blé récolté = 2xp, 1 carotte récolté = 10xp, 1 pomme de terre récolté = 10xp");
+                            player.sendMessage("- Niveau 5 --> Niveau 6: 220 000xp nécessaires : 1 blé récolté = 2xp, 1 carotte récolté = 10xp, 1 pomme de terre récolté = 10xp");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires : 1 blé récolté = 2xp, 1 carotte récolté = 5xp, 1 pomme de terre récolté = 5xp, 1 betterave récolté = 15xp");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires : 1 blé récolté = 2xp, 1 betterave récolté = 15xp");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires : 1 blé récolté = 2xp, 1 betterave récolté = 10xp, 1 canne à sucre récolté = 10xp");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires : 1 blé récolté = 2xp, 1 betterave récolté = 10xp, 1 canne à sucre récolté = 10xp");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires : 1 blé récolté = 2xp, 1 betterave récolté = 5xp, 1 canne à sucre récolté = 5xp, 1 citrouille récolté = 15xp");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires : 1 blé récolté = 2xp, 1 citrouille récolté = 15xp");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires : 1 blé récolté = 2xp, 1 citrouille récolté = 10xp");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires : 1 blé récolté = 2xp, 1 pastèque récolté = 15xp");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires : 1 blé récolté = 2xp, 1 pastèque récolté = 15xp");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires : 1 blé récolté = 2xp, 1 pastèque récolté = 10xp");
+                            player.sendMessage("- Niveau 16 --> Niveau 17  : 2 400 000xp nécessaires : 1 blé récolté = 2xp, 1 cacao récolté = 15xp");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires : 1 blé récolté = 2xp, 1 cacao récolté = 15xp");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires : 1 blé récolté = 10xp, 1 pain fabriqué = 10xp");
+                            player.sendMessage("§2===================================================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){
@@ -290,30 +290,30 @@ public class HelpWork implements CommandExecutor {
 
                         if (args[1].equalsIgnoreCase("XP")){
 
-                            player.sendMessage("§6============XP Bucheron============");
+                            player.sendMessage("§6=================XP Bucheron=================");
                             player.sendMessage("- 1 tronc cassé de n'importe quelle type de bois = 20xp");
-                            player.sendMessage("§6============XP Nécessaire==========");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires");
-                            player.sendMessage("§6===================================");
+                            player.sendMessage("§6=================XP Nécessaire===============");
+                            player.sendMessage("- Niveau 0 --> Niveau 1 : 10 000xp nécessaires");
+                            player.sendMessage("- Niveau 1 --> Niveau 2: 30 000xp nécessaires");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires");
+                            player.sendMessage("- Niveau 3 --> Niveau 4: 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires");
+                            player.sendMessage("- Niveau 5 --> Niveau 6 : 220 000xp nécessaires");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 16 --> Niveau 17 : 2 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires");
+                            player.sendMessage("§6==============================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){
@@ -354,28 +354,28 @@ public class HelpWork implements CommandExecutor {
 
                         if (args[1].equalsIgnoreCase("XP")){
 
-                            player.sendMessage("§7============XP Mineur============");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de charbon miné = 20xp");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de charbon miné = 20xp");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de charbon miné = 20xp, 1 minerai de fer miné = 30xp");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de fer miné = 30xp");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de fer miné = 20xp");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires : 1 minerai de fer miné = 20xp, 1 minerai de redstonne miné = 30xp");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires : 1 minerai de fer miné = 10xp, 1 minerai de redstonne miné = 20xp");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires : 1 minerai de fer miné = 10xp, 1 minerai de redstonne miné = 20xp, 1 minerai d'or miné = 50xp");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de redstonne miné = 10xp, 1 minerai d'or miné = 40xp, 1 minerai de pépites d'or = 40xp ");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai d'or miné = 30xp, 1 minerai de pépites d'or = 30xp, 1 minerai de quartz = 40xp");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de pépites d'or = 20xp, 1 minerai de quartz = 30xp");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de pépites d'or = 20xp, 1 minerai de quartz = 30xp");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de pépites d'or = 15xp, 1 minerai de quartz = 25xp");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de pépites d'or = 10xp, 1 minerai de quartz = 20xp, 1 pierre lumineuse miné = 60xp");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de quartz = 20xp, 1 pierre lumineuse miné = 60xp");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 pierre lumineuse miné = 50xp, 1 minerai de diamant miné = 120xp, 1 minerai de lapis-lazuli = 50xp");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de diamant miné = 110xp, 1 minerai de lapis-lazuli = 40xp, 1 minerai d'émeraude = 500xp");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de diamant miné = 100xp, 1 minerai de lapis-lazuli = 30xp, 1 minerai d'émeraude = 450xp, 1 débris antique miné = 200xp");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de diamant miné = 90xp, 1 minerai d'émeraude = 400xp, 1 débris antique miné = 190xp");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de diamant miné = 80xp, 1 minerai d'émeraude = 350xp, 1 débris antique miné = 180xp");
-                            player.sendMessage("§7=================================");
+                            player.sendMessage("§7=============================XP Mineur=============================");
+                            player.sendMessage("- Niveau 0 --> Niveau 1 : 10 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de charbon miné = 20xp");
+                            player.sendMessage("- Niveau 1 --> Niveau 2 : 30 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de charbon miné = 20xp");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de charbon miné = 20xp, 1 minerai de fer miné = 30xp");
+                            player.sendMessage("- Niveau 3 --> Niveau 4 : 100 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de fer miné = 30xp");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires : 1 pierre miné = 1xp, 1 minerai de fer miné = 20xp");
+                            player.sendMessage("- Niveau 5 --> Niveau 6 : 220 000xp nécessaires : 1 minerai de fer miné = 20xp, 1 minerai de redstonne miné = 30xp");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires : 1 minerai de fer miné = 10xp, 1 minerai de redstonne miné = 20xp");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires : 1 minerai de fer miné = 10xp, 1 minerai de redstonne miné = 20xp, 1 minerai d'or miné = 50xp");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de redstonne miné = 10xp, 1 minerai d'or miné = 40xp, 1 minerai de pépites d'or = 40xp");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai d'or miné = 30xp, 1 minerai de pépites d'or = 30xp, 1 minerai de quartz = 40xp");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de pépites d'or = 20xp, 1 minerai de quartz = 30xp");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de pépites d'or = 20xp, 1 minerai de quartz = 30xp");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de pépites d'or = 15xp, 1 minerai de quartz = 25xp");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de pépites d'or = 10xp, 1 minerai de quartz = 20xp, 1 pierre lumineuse miné = 60xp");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de quartz = 20xp, 1 pierre lumineuse miné = 60xp");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 pierre lumineuse miné = 50xp, 1 minerai de diamant miné = 120xp, 1 minerai de lapis-lazuli = 50xp");
+                            player.sendMessage("- Niveau 16 --> Niveau 17 : 2 400 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de diamant miné = 110xp, 1 minerai de lapis-lazuli = 40xp, 1 minerai d'émeraude = 500xp");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de diamant miné = 100xp, 1 minerai de lapis-lazuli = 30xp, 1 minerai d'émeraude = 450xp, 1 débris antique miné = 200xp");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de diamant miné = 90xp, 1 minerai d'émeraude = 400xp, 1 débris antique miné = 190xp");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires : 1 minerai de fer miné = 5xp, 1 minerai de diamant miné = 80xp, 1 minerai d'émeraude = 350xp, 1 débris antique miné = 180xp");
+                            player.sendMessage("§2===================================================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){
@@ -416,35 +416,35 @@ public class HelpWork implements CommandExecutor {
 
                         if (args[1].equalsIgnoreCase("XP")){
 
-                            player.sendMessage("§3============XP Pecheur============");
+                            player.sendMessage("§3==================XP Pêcheur==================");
                             player.sendMessage("- 1 saumon pêché = 40xp");
                             player.sendMessage("- 1 morue pêché = 40");
                             player.sendMessage("- 1 poison globe pêché = 100xp");
                             player.sendMessage("- 1 poisson tropical pêché = 100xp");
                             player.sendMessage("- 1 trésor pêché = 100xp");
                             player.sendMessage("- 1 déchet pêché = 60xp");
-                            player.sendMessage("§3============XP Nécessaire==========");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires");
-                            player.sendMessage("§3===================================");
+                            player.sendMessage("§3==================XP Nécessaire================");
+                            player.sendMessage("- Niveau 0 --> Niveau 1 : 10 000xp nécessaires");
+                            player.sendMessage("- Niveau 1 --> Niveau 2: 30 000xp nécessaires");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires");
+                            player.sendMessage("- Niveau 3 --> Niveau 4: 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires");
+                            player.sendMessage("- Niveau 5 --> Niveau 6 : 220 000xp nécessaires");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 16 --> Niveau 17 : 2 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires");
+                            player.sendMessage("§3===============================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){
@@ -485,30 +485,30 @@ public class HelpWork implements CommandExecutor {
 
                         if (args[1].equalsIgnoreCase("XP")){
 
-                            player.sendMessage("§4============XP Chasseur============");
+                            player.sendMessage("§4==================XP Chasseur==================");
                             player.sendMessage("- Tuer un monstre = 80xp");
-                            player.sendMessage("§4============XP Nécessaire==========");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires");
-                            player.sendMessage("§4===================================");
+                            player.sendMessage("§4==================XP Nécessaire================");
+                            player.sendMessage("- Niveau 0 --> Niveau 1 : 10 000xp nécessaires");
+                            player.sendMessage("- Niveau 1 --> Niveau 2: 30 000xp nécessaires");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires");
+                            player.sendMessage("- Niveau 3 --> Niveau 4: 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires");
+                            player.sendMessage("- Niveau 5 --> Niveau 6 : 220 000xp nécessaires");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 16 --> Niveau 17 : 2 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires");
+                            player.sendMessage("§4===============================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){
@@ -549,32 +549,32 @@ public class HelpWork implements CommandExecutor {
 
                         if (args[1].equalsIgnoreCase("XP")){
 
-                            player.sendMessage("§e============XP Eleveur============");
+                            player.sendMessage("§e=================XP Eleveur=================");
                             player.sendMessage("- Tuer un animal = 50xp");
                             player.sendMessage("- Nourrir un animal = 40xp");
                             player.sendMessage("- Eclore 1 œuf = 20xp");
-                            player.sendMessage("§e============XP Nécessaire==========");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires");
-                            player.sendMessage("§e===================================");
+                            player.sendMessage("§e==================XP Nécessaire================");
+                            player.sendMessage("- Niveau 0 --> Niveau 1 : 10 000xp nécessaires");
+                            player.sendMessage("- Niveau 1 --> Niveau 2: 30 000xp nécessaires");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires");
+                            player.sendMessage("- Niveau 3 --> Niveau 4: 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires");
+                            player.sendMessage("- Niveau 5 --> Niveau 6 : 220 000xp nécessaires");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 16 --> Niveau 17 : 2 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires");
+                            player.sendMessage("§e===============================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){
@@ -615,7 +615,7 @@ public class HelpWork implements CommandExecutor {
 
                         if (args[1].equalsIgnoreCase("XP")){
 
-                            player.sendMessage("§8============XP Forgeron============");
+                            player.sendMessage("§8==================XP Forgeron==================");
                             player.sendMessage("- 4 flèches = 16xp");
                             player.sendMessage("- 1 arc = 20xp");
                             player.sendMessage("- 1 arbalète = 30xp");
@@ -649,28 +649,28 @@ public class HelpWork implements CommandExecutor {
                             player.sendMessage("- 1 paire de botte en diamant = 400xp");
                             player.sendMessage("- Transformation d'un outil ou armure en netherite = 600xp");
                             player.sendMessage("- 1 réparation dans l'enclume = 50xp");
-                            player.sendMessage("§8============XP Nécessaire==========");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires");
-                            player.sendMessage("§8===================================");
+                            player.sendMessage("§8==================XP Nécessaire================");
+                            player.sendMessage("- Niveau 0 --> Niveau 1 : 10 000xp nécessaires");
+                            player.sendMessage("- Niveau 1 --> Niveau 2: 30 000xp nécessaires");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires");
+                            player.sendMessage("- Niveau 3 --> Niveau 4: 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires");
+                            player.sendMessage("- Niveau 5 --> Niveau 6 : 220 000xp nécessaires");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 16 --> Niveau 17 : 2 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires");
+                            player.sendMessage("§8===============================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){
@@ -763,28 +763,28 @@ public class HelpWork implements CommandExecutor {
                             player.sendMessage("- Chance de la mer I = 160xp       - Chance de la mer II = 240xp");
                             player.sendMessage("- Chance de la mer III = 320xp     - Appât I = 160xp");
                             player.sendMessage("- Appât II = 240xp                 - Appât III = 320xp");
-                            player.sendMessage("§d=================XP Nécessaire===============");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires");
-                            player.sendMessage("§d=============================================");
+                            player.sendMessage("§d===================XP Nécessaire=================");
+                            player.sendMessage("- Niveau 0 --> Niveau 1 : 10 000xp nécessaires");
+                            player.sendMessage("- Niveau 1 --> Niveau 2: 30 000xp nécessaires");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires");
+                            player.sendMessage("- Niveau 3 --> Niveau 4: 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires");
+                            player.sendMessage("- Niveau 5 --> Niveau 6 : 220 000xp nécessaires");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 16 --> Niveau 17 : 2 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires");
+                            player.sendMessage("§d=================================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){
@@ -825,7 +825,7 @@ public class HelpWork implements CommandExecutor {
 
                         if (args[1].equalsIgnoreCase("XP")){
 
-                            player.sendMessage("§5============XP Alchimiste============");
+                            player.sendMessage("§5================XP Alchimiste================");
                             player.sendMessage("- 1 potion étrange = 10xp");
                             player.sendMessage("- 1 potion jetable = 10xp");
                             player.sendMessage("- 1 potion banale = 10xp");
@@ -844,28 +844,28 @@ public class HelpWork implements CommandExecutor {
                             player.sendMessage("- 1 potion d'invisibilité = 14xp");
                             player.sendMessage("- Amélioration en temps = 10xp (redstonne)");
                             player.sendMessage("- Amélioration de l'efficacité = 10xp (poudre lumineuse)");
-                            player.sendMessage("§5============XP Nécessaire==========");
-                            player.sendMessage("- Niveau 1 : 10 000xp nécessaires");
-                            player.sendMessage("- Niveau 2 : 30 000xp nécessaires");
-                            player.sendMessage("- Niveau 3 : 60 000xp nécessaires");
-                            player.sendMessage("- Niveau 4 : 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 5 : 150 000xp nécessaires");
-                            player.sendMessage("- Niveau 6 : 220 000xp nécessaires");
-                            player.sendMessage("- Niveau 7 : 300 000xp nécessaires");
-                            player.sendMessage("- Niveau 8 : 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 9 : 550 000xp nécessaires");
-                            player.sendMessage("- Niveau 10 : 720 000xp nécessaires");
-                            player.sendMessage("- Niveau 11 : 900 000xp nécessaires");
-                            player.sendMessage("- Niveau 12 : 1 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 13 : 1 350 000xp nécessaires");
-                            player.sendMessage("- Niveau 14 : 1 600 000xp nécessaires");
-                            player.sendMessage("- Niveau 15 : 1 850 000xp nécessaires");
-                            player.sendMessage("- Niveau 16 : 2 100 000xp nécessaires");
-                            player.sendMessage("- Niveau 17 : 2 400 000xp nécessaires");
-                            player.sendMessage("- Niveau 18 : 2 700 000xp nécessaires");
-                            player.sendMessage("- Niveau 19 : 3 000 000xp nécessaires");
-                            player.sendMessage("- Niveau 20 : 3 500 000xp nécessaires");
-                            player.sendMessage("§5===================================");
+                            player.sendMessage("§5==================XP Nécessaire================");
+                            player.sendMessage("- Niveau 0 --> Niveau 1 : 10 000xp nécessaires");
+                            player.sendMessage("- Niveau 1 --> Niveau 2: 30 000xp nécessaires");
+                            player.sendMessage("- Niveau 2 --> Niveau 3 : 60 000xp nécessaires");
+                            player.sendMessage("- Niveau 3 --> Niveau 4: 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 4 --> Niveau 5 : 150 000xp nécessaires");
+                            player.sendMessage("- Niveau 5 --> Niveau 6 : 220 000xp nécessaires");
+                            player.sendMessage("- Niveau 6 --> Niveau 7 : 300 000xp nécessaires");
+                            player.sendMessage("- Niveau 7 --> Niveau 8 : 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 8 --> Niveau 9 : 550 000xp nécessaires");
+                            player.sendMessage("- Niveau 9 --> Niveau 10 : 720 000xp nécessaires");
+                            player.sendMessage("- Niveau 10 --> Niveau 11 : 900 000xp nécessaires");
+                            player.sendMessage("- Niveau 11 --> Niveau 12 : 1 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 12 --> Niveau 13 : 1 350 000xp nécessaires");
+                            player.sendMessage("- Niveau 13 --> Niveau 14 : 1 600 000xp nécessaires");
+                            player.sendMessage("- Niveau 14 --> Niveau 15 : 1 850 000xp nécessaires");
+                            player.sendMessage("- Niveau 15 --> Niveau 16 : 2 100 000xp nécessaires");
+                            player.sendMessage("- Niveau 16 --> Niveau 17 : 2 400 000xp nécessaires");
+                            player.sendMessage("- Niveau 17 --> Niveau 18 : 2 700 000xp nécessaires");
+                            player.sendMessage("- Niveau 18 --> Niveau 19 : 3 000 000xp nécessaires");
+                            player.sendMessage("- Niveau 19 --> Niveau 20 : 3 500 000xp nécessaires");
+                            player.sendMessage("§5===============================================");
                         }
 
                         if (args[1].equalsIgnoreCase("Recompenses")){

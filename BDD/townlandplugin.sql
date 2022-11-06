@@ -85,8 +85,8 @@ INSERT INTO `bienvenue` (`Id`, `NombreB`) VALUES
 -- Structure de la table `home`
 --
 
-DROP TABLE IF EXISTS `home`;
-CREATE TABLE IF NOT EXISTS `home` (
+DROP TABLE IF EXISTS `Home`;
+CREATE TABLE IF NOT EXISTS `Home` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `player_uuid` varchar(255) NOT NULL,
   `nom_home` varchar(255) NOT NULL,

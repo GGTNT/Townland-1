@@ -1,23 +1,39 @@
 package fr.Townland.Main.Moderation.command.Bans;
 
 import fr.Townland.Main.Main;
+import fr.Townland.Main.TabList.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
 public class BanCommand implements CommandExecutor {
+    private final Rank rank;
+
+    public BanCommand(Rank rank) {
+        this.rank = rank;
+    }
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(label.equalsIgnoreCase("ban")){
+            if (rank.hasPowerInf((Player) sender, 6)) {
+                sender.sendMessage("§cVous n'avez pas la permission");
+                return false;
+            }
+
             if(args.length < 3){
                 helpMessage(sender);
                 return false;
             }
             String targetName = args[0];
-
+            Player po = Bukkit.getServer().getPlayer(args[0]);
+            if (rank.hasPowerSup((Player) po, 3)) {
+                sender.sendMessage("§cVous ne pouvez pas bannir un membre de la modération");
+                return false;
+            }
             if(!Main.getInstance().playerInfos.exists(targetName)){
                 sender.sendMessage("§cJoueur introuvable");
             }
@@ -65,6 +81,10 @@ public class BanCommand implements CommandExecutor {
         }
 
         if(label.equalsIgnoreCase("unban")){
+            if (rank.hasPowerInf((Player) sender, 6)) {
+                sender.sendMessage("§cVous n'avez pas la permission");
+                return false;
+            }
             if(args.length != 1){
                 sender.sendMessage("§c/unban <joueur>");
                 return false;
@@ -85,6 +105,10 @@ public class BanCommand implements CommandExecutor {
             return false;
         }
         if(label.equalsIgnoreCase("check")){
+            if (rank.hasPowerInf((Player) sender, 4)) {
+                sender.sendMessage("§cVous n'avez pas la permission");
+                return false;
+            }
             if(args.length != 1){
                 sender.sendMessage("§c/check <joueur>");
                 return false;

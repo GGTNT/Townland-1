@@ -31,6 +31,8 @@ public class Kick implements CommandExecutor {
                         po.kickPlayer("§cVous avez été kick par §6" + p.getName());
                         return true;
                     }
+                }else{
+                    p.sendMessage("§eHelp: /kick <joueur>");
                 }
 
             }

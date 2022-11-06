@@ -1,51 +1,48 @@
 package fr.Townland.Main;
-import fr.Townland.Main.Help.Modo.HelpModo;
-import fr.Townland.Main.Moderation.command.Bans.BanCommand;
-import fr.Townland.Main.Moderation.command.Bans.BanManager;
-import fr.Townland.Main.Moderation.command.Bans.PlayerInfos;
-import fr.Townland.Main.Economie.commands.CoinsCommand;
-import fr.Townland.Main.Economie.events.SignShop;
-import fr.Townland.Main.Economie.listeners.player.PlayerJoinListener;
+
 import fr.Townland.Main.Bienvenue.Bienvenue;
 import fr.Townland.Main.Bienvenue.RequestBvn;
 import fr.Townland.Main.Bienvenue.SetupBVNCommand;
+import fr.Townland.Main.Command.TestCommand;
+import fr.Townland.Main.Economie.DataEconomie.SignShopManager;
+import fr.Townland.Main.Economie.commands.CoinsCommand;
+import fr.Townland.Main.Economie.events.SignShop;
+import fr.Townland.Main.Economie.listeners.player.PlayerJoinListener;
 import fr.Townland.Main.Help.HelpCommand;
 import fr.Townland.Main.Help.Work.HelpWork;
 import fr.Townland.Main.Message.MessagePropa_Sensi;
 import fr.Townland.Main.Moderation.command.*;
-import fr.Townland.Main.Moderation.command.Clear;
-import fr.Townland.Main.Moderation.command.ClearChat;
-import fr.Townland.Main.Moderation.command.Fly;
-import fr.Townland.Main.Moderation.command.Gm;
-import fr.Townland.Main.Moderation.command.Invsee;
-import fr.Townland.Main.Moderation.command.Kick;
+import fr.Townland.Main.Moderation.command.Bans.BanCommand;
+import fr.Townland.Main.Moderation.command.Bans.BanManager;
+import fr.Townland.Main.Moderation.command.Bans.PlayerInfos;
 import fr.Townland.Main.Moderation.command.Mute.MuteCommand;
 import fr.Townland.Main.Moderation.command.Mute.MuteManager;
 import fr.Townland.Main.Moderation.command.Mute.PlayerInfosM;
-import fr.Townland.Main.Moderation.command.Tp;
+import fr.Townland.Main.Moderation.command.vanish.VanishCommand;
+import fr.Townland.Main.Moderation.command.vanish.events.JoinEvent;
 import fr.Townland.Main.TabList.CustomTabList;
-import fr.Townland.Main.Moderation.command.VanishCommand;
-import fr.Townland.Main.Téléportation.Home;
-import fr.Townland.Main.Téléportation.HomeManager;
-import fr.Townland.Main.Téléportation.Spawn;
 import fr.Townland.Main.TabList.PlayerListener;
 import fr.Townland.Main.TabList.Rank;
 import fr.Townland.Main.TabList.RankCommand;
-import fr.Townland.Main.Works.Pecheur.HashMapPecheur;
-import fr.Townland.Main.Works.Pecheur.Pecheur;
-import fr.Townland.Main.Works.Pecheur.PecheurListener;
-import fr.Townland.Main.Works.Pecheur.RequestPecheur;
+import fr.Townland.Main.Teleportation.commands.Home;
+import fr.Townland.Main.Teleportation.commands.RegionCmd;
+import fr.Townland.Main.Teleportation.commands.SetSpawnCommand;
+import fr.Townland.Main.Teleportation.commands.SpawnCommand;
+import fr.Townland.Main.Teleportation.listeners.HomeManager;
+import fr.Townland.Main.Teleportation.listeners.RegionListener;
+import fr.Townland.Main.Teleportation.listeners.SpawnManager;
+import fr.Townland.Main.Teleportation.managers.RegionManager;
+import fr.Townland.Main.Works.Farmer.Farmer;
+import fr.Townland.Main.Works.Farmer.FarmerListener;
+import fr.Townland.Main.Works.Farmer.HashMapFarmer;
+import fr.Townland.Main.Works.Farmer.RequestFarmer;
+import fr.Townland.Main.Works.*;
 import fr.Townland.Main.mysql.DbManage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
-import fr.Townland.Main.Works.Farmer.Farmer;
-import fr.Townland.Main.Works.Farmer.RequestFarmer;
-import fr.Townland.Main.Command.*;
-import fr.Townland.Main.Works.*;
-import fr.Townland.Main.Works.Farmer.FarmerListener;
-import fr.Townland.Main.Works.Farmer.HashMapFarmer;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -62,7 +59,6 @@ public class Main extends JavaPlugin implements Listener {
 	private Farmer farmer;
 	private RequestBvn requestBvn;
 	private Bienvenue bienvenue;
-	private Spawn spawn;
 	public DbManage database;
 	public BanManager banManager = new BanManager();
 	public PlayerInfos playerInfos = new PlayerInfos();
@@ -70,12 +66,21 @@ public class Main extends JavaPlugin implements Listener {
 	public PlayerInfosM playerInfosM = new PlayerInfosM();
 	public List<UUID> que;
 	public List<Player> frozen;
+	public ArrayList<Player> invisible_list = new ArrayList<>();
 	public HomeManager homeManager = new HomeManager();
-	private HashMapPecheur hashMapPecheur;
-	private RequestPecheur requestPecheur;
-	private Pecheur pecheur;
+	public SpawnManager spawnManager = new SpawnManager();
+	public SignShopManager signShopManager = new SignShopManager();
+	private RegionManager regionManager = new RegionManager();
+	public RegionCmd regionCmd;
+
+
 
 	public void onEnable() {
+		//Spawn
+		getConfig().options().copyDefaults();
+		saveDefaultConfig();
+
+
 
 		this.que = new ArrayList<>();
 		this.frozen = new ArrayList<>();
@@ -88,9 +93,7 @@ public class Main extends JavaPlugin implements Listener {
 		messagePropa_sensi = new MessagePropa_Sensi();
 		hashMapFarmer = new HashMapFarmer();
 		farmer = new Farmer(hashMapFarmer, requestFarmer);
-		hashMapPecheur = new HashMapPecheur();
-		requestPecheur = new RequestPecheur(hashMapPecheur);
-		pecheur = new Pecheur(hashMapPecheur, requestPecheur);
+		regionCmd = new RegionCmd(this,rank);
 
 		//registrer les Events
 		getServer().getPluginManager().registerEvents(new Bienvenue(), this);
@@ -99,58 +102,59 @@ public class Main extends JavaPlugin implements Listener {
 		getServer().getPluginManager().registerEvents(new CustomTabList(),this);
 		getServer().getPluginManager().registerEvents(new SignShop(),this);
 		getServer().getPluginManager().registerEvents(this, this);
-		getServer().getPluginManager().registerEvents(new VanishCommand(this,rank), this);
+		//getServer().getPluginManager().registerEvents(new VanishCommand(this,rank), this);
 		getServer().getPluginManager().registerEvents(new PlayerInfos(),this);
 		getServer().getPluginManager().registerEvents(new PlayerInfosM(),this);
 		getServer().getPluginManager().registerEvents(new Home(rank,this),this);
-		getServer().getPluginManager().registerEvents(new PecheurListener(hashMapPecheur, requestPecheur, rank, pecheur), this);
-		rank.initScoreboard();
+		getServer().getPluginManager().registerEvents(new Freeze(rank,this),this);
+		getServer().getPluginManager().registerEvents(new SignShop(),this);
+		getServer().getPluginManager().registerEvents(new JoinEvent(this,rank),this);
+		this.getServer().getPluginManager().registerEvents(new RegionListener(this), this);
 
+
+		rank.initScoreboard();
+		//les commandes
 		getCommand("home").setExecutor(new Home(rank,this));
 		getCommand("delhome").setExecutor(new Home(rank,this));
 		getCommand("sethome").setExecutor(new Home(rank,this));
-		getCommand("spawn").setExecutor(new Spawn(rank,this));
-		getCommand("delspawn").setExecutor(new Spawn(rank,this));
-		getCommand("setspawn").setExecutor(new Spawn(rank,this));
 		getCommand("setbvn").setExecutor(new SetupBVNCommand(rank, requestBvn));
-		//métiers
-		getCommand("givexp").setExecutor(new GiveXpWorkCommand(rank, hashMapFarmer, hashMapPecheur));
-		getCommand("removexp").setExecutor(new RemoveXpCommand(hashMapFarmer, rank, hashMapPecheur));
-		getCommand("getxp").setExecutor(new GetXpWorkCommand(rank, hashMapFarmer, hashMapPecheur));
+		getCommand("givexp").setExecutor(new GiveXpWorkCommand(rank, hashMapFarmer));
+		getCommand("removexp").setExecutor(new RemoveXpWorkCommand(hashMapFarmer, rank));
+		getCommand("getxp").setExecutor(new GetXpWorkCommand(rank, hashMapFarmer));
 		getCommand("test").setExecutor(new TestCommand(bienvenue));
 		getCommand("rank").setExecutor(new RankCommand(rank));
-		getCommand("joinwork").setExecutor(new JoinWorkCommand(requestFarmer, hashMapFarmer, rank, hashMapPecheur, requestPecheur));
-		getCommand("leavework").setExecutor(new LeaveWorkCommand(requestFarmer, hashMapFarmer, rank, hashMapPecheur));
-		getCommand("getwork").setExecutor(new GetWorkCommand(rank, hashMapFarmer, hashMapPecheur));
-		//Modération
+		getCommand("joinwork").setExecutor(new JoinWorkCommand(requestFarmer, hashMapFarmer, rank));
+		getCommand("leavework").setExecutor(new LeaveWorkCommand(requestFarmer, hashMapFarmer, rank));
 		getCommand("vanish").setExecutor(new VanishCommand(this,rank));
 		getCommand("cclear").setExecutor(new ClearChat(rank));
-		getCommand("freeze").setExecutor(new Freeze(rank, this));
-		getCommand("unfreeze").setExecutor(new Freeze(rank, this));
-		getCommand("ban").setExecutor(new BanCommand());
+		getCommand("freeze").setExecutor(new Freeze(rank,this));
+		getCommand("unfreeze").setExecutor(new Freeze(rank,this));
+		getCommand("ban").setExecutor(new BanCommand(rank));
 		getCommand("fly").setExecutor(new Fly(rank));
 		getCommand("tp").setExecutor(new Tp(rank));
+		getCommand("tpa").setExecutor(new Tpa(rank));
 		getCommand("kick").setExecutor(new Kick(rank));
 		getCommand("clear").setExecutor(new Clear(rank));
 		getCommand("invsee").setExecutor(new Invsee(rank));
 		getCommand("gamemode").setExecutor(new Gm(rank));
 		getCommand("gamemode").setTabCompleter( new AutoComplete());
-		getCommand("unban").setExecutor(new BanCommand());
+		getCommand("coins").setTabCompleter( new CoinComplete());
+		getCommand("unban").setExecutor(new BanCommand(rank));
 		getCommand("mute").setExecutor(new MuteCommand());
 		getCommand("unmute").setExecutor(new MuteCommand());
-		getCommand("check").setExecutor(new BanCommand());
+		getCommand("check").setExecutor(new BanCommand(rank));
+		getCommand("setspawn").setExecutor(new SetSpawnCommand(this,rank));
+		getCommand("spawn").setExecutor(new SpawnCommand(this,rank));
 
 		//commande help
-		getCommand("help").setExecutor(new HelpCommand(rank));
+		getCommand("help").setExecutor(new HelpCommand());
 		getCommand("helpWork").setExecutor(new HelpWork());
-		getCommand("helpModo").setExecutor(new HelpModo(rank));
+
 
 		System.out.println("TownlandPlugin allume");
 
-		//remettre les métiers et xp en cas de relancement
-		farmer.setupFarmer();
-		pecheur.setupPecheur();
-
+		//remettre les métiers et xp de farmer en cas de relancement
+		farmer.setupFarmerXP();
 		//récupérer les coordonnées des melons sugarcannes et pumpkins
 		farmer.setupFarmerCo();
 
@@ -161,17 +165,22 @@ public class Main extends JavaPlugin implements Listener {
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new fr.Townland.Main.Economie.listeners.player.PlayerJoinListener(),this);
 		pm.registerEvents(new PlayerJoinListener(),this);
-		this.getCommand("coins").setExecutor(new CoinsCommand());
+		this.getCommand("coins").setExecutor(new CoinsCommand(rank,this));
+
+
 	}
 
 	public void onDisable() {
+		for (Player player : Bukkit.getOnlinePlayers()){
+			if (hashMapFarmer.getXpfarmer().containsKey(player.getUniqueId().toString())){
+				requestFarmer.changeXP("farmer", player, hashMapFarmer.getXpfarmer().get(player.getUniqueId().toString()));
+				hashMapFarmer.getXpfarmer().remove(player.getUniqueId().toString());
+			}else {
+			}
+		}
 
-		//save l'exp/work des joueurs métier
+		//save l'exp des joueurs métier farmeur
 		farmer.saveFarmerXP();
-		farmer.saveFarmerWork();
-		pecheur.SavePecheurWork();
-		pecheur.SavePecheurXP();
-
 		//save les coordonnées des melons sugarcannes et pumpkins
 		farmer.saveFarmerCo();
 
@@ -185,7 +194,6 @@ public class Main extends JavaPlugin implements Listener {
 	public void onLoad() {
 		rank = new Rank(this);
 	}
-
 	public static Main getInstance() {
 		return INSTANCE;
 	}
@@ -203,4 +211,13 @@ public class Main extends JavaPlugin implements Listener {
 	{
 		return this.que.contains(id);
 	}
+	//SpawnClaim
+	public RegionCmd getRegionCmd() {
+		return this.regionCmd;
+	}
+
+	public RegionManager getRegionManager() {
+		return this.regionManager;
+	}
+
 }

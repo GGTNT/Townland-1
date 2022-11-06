@@ -1,6 +1,8 @@
 package fr.Townland.Main.Economie.commands;
 
 import fr.Townland.Main.Economie.DataEconomie.PlayerInfo;
+import fr.Townland.Main.Main;
+import fr.Townland.Main.TabList.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -8,6 +10,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CoinsCommand implements CommandExecutor {
+    private Main main;
+    private final Rank rank;
+
+    public CoinsCommand(Rank rank,Main main) {
+        this.rank = rank;
+        this.main = main;
+    }
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(!(sender instanceof Player)){
@@ -22,7 +31,10 @@ public class CoinsCommand implements CommandExecutor {
         }
         if (args.length >= 1){
             if(args[0].equalsIgnoreCase("add")){
-
+                if (rank.hasPowerInf((Player) sender, 5)) {
+                    sender.sendMessage("§cVous n'avez pas la permission");
+                    return false;
+                }
                 if(args.length == 3){
                     Player target = Bukkit.getPlayer(args[2]);
                     if (target != null) {
@@ -41,18 +53,20 @@ public class CoinsCommand implements CommandExecutor {
                 }
             }
             if(args[0].equalsIgnoreCase("remove")) {
-
+                if (rank.hasPowerInf((Player) sender, 5)) {
+                    sender.sendMessage("§cVous n'avez pas la permission");
+                    return false;
+                }
                 if (args.length == 3) {
                     Player target = Bukkit.getPlayer(args[2]);
                     if (target != null) {
                         float amount = Float.valueOf(args[1]);
                         PlayerInfo targetInfo = new PlayerInfo(target);
-                        if(amount < 0){
+                        if(amount < 0 || amount > playerInfo.getCoinsNumber()){
                             player.sendMessage("§cVeuillez entrer un nombre valide.");
                         }else {
                             try {
                                 targetInfo.removeCoins(amount);
-                                player.sendMessage("§eVous avez retiré §b" + amount + " coins à §6" + target.getName());
                                 target.sendMessage( player.getName() + " §evous a retiré §6" + amount + " coins");
                             } catch (NumberFormatException e) {
                                 player.sendMessage("§cVeuillez entrer un nombre valide.");
@@ -91,7 +105,10 @@ public class CoinsCommand implements CommandExecutor {
                 }
             }
             if(args[0].equalsIgnoreCase("set")) {
-
+                if (rank.hasPowerInf((Player) sender, 5)) {
+                    sender.sendMessage("§cVous n'avez pas la permission");
+                    return false;
+                }
                 if (args.length == 3) {
                     Player target = Bukkit.getPlayer(args[2]);
                     if (target != null) {

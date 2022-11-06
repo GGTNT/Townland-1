@@ -1,19 +1,22 @@
 package fr.Townland.Main.Economie.events;
 
 import fr.Townland.Main.Economie.DataEconomie.PlayerInfo;
+import fr.Townland.Main.Main;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.ArrayList;
 
 
 public class SignShop implements Listener {
@@ -41,10 +44,11 @@ public class SignShop implements Listener {
             }
         }
     }
+    public Block b;
 
-    ArrayList<Player> proprio = new ArrayList<>();
     @EventHandler
     public void onSignPlacedByPlayer(SignChangeEvent e) {
+        Player p = e.getPlayer();
         if (e.getBlock().getType().equals(Material.OAK_WALL_SIGN)) {
             if (e.getPlayer().isOp() || e.getPlayer().hasPermission("sign.create")) {
                 if (e.getLine(0).equals("[VENTE]")) {
@@ -54,7 +58,10 @@ public class SignShop implements Listener {
                         e.setLine(1, ChatColor.YELLOW + e.getPlayer().getName());
                         e.setLine(2, ChatColor.BLUE + "DIAMOND");
                         e.setLine(3, "§a" + price);
+                        //System.out.println(chest.getFace(chest) != BlockFace.SELF);
 
+
+                        Main.getInstance().signShopManager.setShop(e.getPlayer().getUniqueId(), e.getPlayer().getName(), (double) e.getBlock().getLocation().getBlockX(), (double) e.getBlock().getLocation().getBlockY(), (double) e.getBlock().getLocation().getBlockZ());
                     }
                 }
 
@@ -62,5 +69,12 @@ public class SignShop implements Listener {
             }
         }
     }
+    @EventHandler
+    public void onSupSign(BlockBreakEvent e) {
+        if(e.getBlock().getType().equals(Material.OAK_WALL_SIGN)){
+            Main.getInstance().signShopManager.supSign(e.getPlayer().getUniqueId(),(double) e.getBlock().getLocation().getBlockX(), (double) e.getBlock().getLocation().getBlockY(), (double) e.getBlock().getLocation().getBlockZ());
+        }
+    }
+
 
 }

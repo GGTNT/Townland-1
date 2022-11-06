@@ -34,8 +34,9 @@ public class RequestFarmer {
     }
 
     //récupérer l'xp d'un joueur de son métier
-    public Integer getXPFarmer(Player player){
+    public Integer getXP(String work, Player player){
 
+        if (work.equals("farmer")){
             try {
                 PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("SELECT XPFarmer FROM players WHERE uuid_player = ?");
                 preparedStatement.setString(1, player.getUniqueId().toString());
@@ -57,11 +58,13 @@ public class RequestFarmer {
             }catch (SQLException e){
                 e.printStackTrace();
             }
+        }
         return null;
     }
 
-    public void SetXPFarmer(Player player, Integer xp) {
+    public void changeXP(String work, Player player, Integer xp) {
 
+        if (work.equals("farmer")) {
             try {
 
                 PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("UPDATE players SET XPFarmer = ? WHERE uuid_player = ? ");
@@ -71,11 +74,13 @@ public class RequestFarmer {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
     }
 
     //récupérer le métier du joueur
-    public Boolean getWorkFarmer(UUID uuid){
+    public Boolean getWork(String work, UUID uuid){
 
+        if (work.equals("farmer")){
             try {
                 PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("SELECT WorkFarmer FROM players WHERE uuid_player = ?");
                 preparedStatement.setString(1, uuid.toString());
@@ -90,17 +95,19 @@ public class RequestFarmer {
             }catch (SQLException e){
                 e.printStackTrace();
             }
+        }
         return null;
     }
 
     //changer le métier join
-    public void SetWorkFarmer(Boolean values, Player player){
+    public void updateWork(String work, Boolean o, Player player){
 
+        if (work.equals("farmer")){
             try {
 
-                if (values == false){
+                if (o == false){
                     PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("UPDATE players SET WorkFarmer = ? WHERE uuid_player = ?");
-                    preparedStatement.setBoolean(1, values);
+                    preparedStatement.setBoolean(1, o);
                     preparedStatement.setString(2, player.getUniqueId().toString());
                     preparedStatement.executeUpdate();
                     preparedStatement.close();
@@ -110,13 +117,14 @@ public class RequestFarmer {
                     return;
                 }
                 PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("UPDATE players SET WorkFarmer = ? WHERE uuid_player = ?");
-                preparedStatement.setBoolean(1, values);
+                preparedStatement.setBoolean(1, o);
                 preparedStatement.setString(2, player.getUniqueId().toString());
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             }catch (SQLException e){
                 e.printStackTrace();
             }
+        }
     }
 
     //set les valeurs de départ
@@ -124,7 +132,7 @@ public class RequestFarmer {
 
         try {
 
-            PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("INSERT INTO players (uuid_player, pseudo_player, WorkFarmer, XPFarmer) VALUES (?, ?, ?, ?)");
+            PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("INSERT INTO players (uuid_player, pseudo_player, WorkFarmer, XPFarmer,coins) VALUES (?, ?, ?, ?, ?)");
             //l'uuid du joueur
             preparedStatement.setString(1, player.getUniqueId().toString());
             //le peseudo du joueur
@@ -133,6 +141,8 @@ public class RequestFarmer {
             preparedStatement.setBoolean(3,false);
             //l'xp du métier farmeur du joeur
             preparedStatement.setInt(4,0);
+            //ajouter le field coins
+            preparedStatement.setFloat(5,0);
             preparedStatement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -162,7 +172,7 @@ public class RequestFarmer {
 
         try {
 
-            PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("INSERT INTO pumpkin_location (coLocationPumpkin, PumpkinX, PumpkinY, PumpkinZ, WorldPumpkin, P) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement preparedStatement = DbManage.getConnection().prepareStatement("INSERT INTO pumpkin_location (coLocationPumpkin, PumpkinX, PumpkinY, PumpkinZ, WorldPumpkin P) VALUES (?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, location.toString());
             preparedStatement.setInt(2, location.getBlockX());
             preparedStatement.setInt(3, location.getBlockY());

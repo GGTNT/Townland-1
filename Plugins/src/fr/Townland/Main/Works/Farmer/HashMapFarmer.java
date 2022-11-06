@@ -44,14 +44,10 @@ public class HashMapFarmer {
     }
 
     public void addWorkFarmer(Player player, Boolean bool){
-        workfarmer.replace(player.getUniqueId().toString(), bool);
-    }
-
-    public void setupWorkFarmer(Player player, Boolean bool){
         workfarmer.put(player.getUniqueId().toString(), bool);
     }
 
-    public Boolean getWorkFarmer(Player player){
+    public Boolean getWork(Player player){
         return workfarmer.get(player.getUniqueId().toString());
     }
 

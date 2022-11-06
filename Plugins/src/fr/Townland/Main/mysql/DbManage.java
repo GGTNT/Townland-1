@@ -26,14 +26,12 @@ public class DbManage {
     public void createAccount(UUID uuid){
         if(!hasAccount(uuid)){
             try {
-                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO players (uuid_player, pseudo_player, WorkFarmer, XPFarmer, WorkPecheur, XPPecheur, coins) VALUES (?,?,?,?,?)");
+                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO players (uuid_player, pseudo_player, WorkFarmer, XPFarmer,coins) VALUES (?,?,?,?,?)");
                 preparedStatement.setString(1,uuid.toString());
                 preparedStatement.setString(2, Bukkit.getPlayer(uuid).getName());
-                preparedStatement.setBoolean(3,false);
+                preparedStatement.setInt(3,0);
                 preparedStatement.setInt(4,0);
-                preparedStatement.setBoolean(5, false);
-                preparedStatement.setInt(6, 0);
-                preparedStatement.setFloat(7,100.0F);
+                preparedStatement.setFloat(5,0.0F);
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             }catch (SQLException e){
@@ -64,7 +62,7 @@ public class DbManage {
     public void connexion(){
         if(!isOnline()){
             try {
-                connection = DriverManager.getConnection(this.urlBase + this.host + ":3307/" + this.database, this.userName, this.password);
+                connection = DriverManager.getConnection(this.urlBase + this.host + ":3306/" + this.database, this.userName, this.password);
 
                 //  connection = DriverManager.getConnection(this.urlBase + this.host + "/" + this.database, this.userName, this.password);
                 System.out.println("[DatabaseManager] Succefully connected !");

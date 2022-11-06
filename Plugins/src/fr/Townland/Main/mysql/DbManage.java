@@ -26,12 +26,14 @@ public class DbManage {
     public void createAccount(UUID uuid){
         if(!hasAccount(uuid)){
             try {
-                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO players (uuid_player, pseudo_player, WorkFarmer, XPFarmer,coins) VALUES (?,?,?,?,?)");
+                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO players (uuid_player, pseudo_player, WorkFarmer, XPFarmer, WorkPecheur, XPPecheur, coins) VALUES (?,?,?,?,?)");
                 preparedStatement.setString(1,uuid.toString());
                 preparedStatement.setString(2, Bukkit.getPlayer(uuid).getName());
-                preparedStatement.setInt(3,0);
+                preparedStatement.setBoolean(3,false);
                 preparedStatement.setInt(4,0);
-                preparedStatement.setFloat(5,0.0F);
+                preparedStatement.setBoolean(5, false);
+                preparedStatement.setInt(6, 0);
+                preparedStatement.setFloat(7,100.0F);
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             }catch (SQLException e){

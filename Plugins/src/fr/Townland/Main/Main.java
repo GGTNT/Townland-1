@@ -31,6 +31,10 @@ import fr.Townland.Main.Téléportation.Spawn;
 import fr.Townland.Main.TabList.PlayerListener;
 import fr.Townland.Main.TabList.Rank;
 import fr.Townland.Main.TabList.RankCommand;
+import fr.Townland.Main.Works.Pecheur.HashMapPecheur;
+import fr.Townland.Main.Works.Pecheur.Pecheur;
+import fr.Townland.Main.Works.Pecheur.PecheurListener;
+import fr.Townland.Main.Works.Pecheur.RequestPecheur;
 import fr.Townland.Main.mysql.DbManage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -67,7 +71,9 @@ public class Main extends JavaPlugin implements Listener {
 	public List<UUID> que;
 	public List<Player> frozen;
 	public HomeManager homeManager = new HomeManager();
-
+	private HashMapPecheur hashMapPecheur;
+	private RequestPecheur requestPecheur;
+	private Pecheur pecheur;
 
 	public void onEnable() {
 
@@ -82,6 +88,9 @@ public class Main extends JavaPlugin implements Listener {
 		messagePropa_sensi = new MessagePropa_Sensi();
 		hashMapFarmer = new HashMapFarmer();
 		farmer = new Farmer(hashMapFarmer, requestFarmer);
+		hashMapPecheur = new HashMapPecheur();
+		requestPecheur = new RequestPecheur(hashMapPecheur);
+		pecheur = new Pecheur(hashMapPecheur, requestPecheur);
 
 		//registrer les Events
 		getServer().getPluginManager().registerEvents(new Bienvenue(), this);
@@ -94,6 +103,7 @@ public class Main extends JavaPlugin implements Listener {
 		getServer().getPluginManager().registerEvents(new PlayerInfos(),this);
 		getServer().getPluginManager().registerEvents(new PlayerInfosM(),this);
 		getServer().getPluginManager().registerEvents(new Home(rank,this),this);
+		getServer().getPluginManager().registerEvents(new PecheurListener(hashMapPecheur, requestPecheur, rank, pecheur), this);
 		rank.initScoreboard();
 
 		getCommand("home").setExecutor(new Home(rank,this));
@@ -104,14 +114,14 @@ public class Main extends JavaPlugin implements Listener {
 		getCommand("setspawn").setExecutor(new Spawn(rank,this));
 		getCommand("setbvn").setExecutor(new SetupBVNCommand(rank, requestBvn));
 		//métiers
-		getCommand("givexp").setExecutor(new GiveXpWorkCommand(rank, hashMapFarmer));
-		getCommand("removexp").setExecutor(new RemoveXpCommand(hashMapFarmer, rank));
-		getCommand("getxp").setExecutor(new GetXpWorkCommand(rank, hashMapFarmer));
+		getCommand("givexp").setExecutor(new GiveXpWorkCommand(rank, hashMapFarmer, hashMapPecheur));
+		getCommand("removexp").setExecutor(new RemoveXpCommand(hashMapFarmer, rank, hashMapPecheur));
+		getCommand("getxp").setExecutor(new GetXpWorkCommand(rank, hashMapFarmer, hashMapPecheur));
 		getCommand("test").setExecutor(new TestCommand(bienvenue));
 		getCommand("rank").setExecutor(new RankCommand(rank));
-		getCommand("joinwork").setExecutor(new JoinWorkCommand(requestFarmer, hashMapFarmer, rank));
-		getCommand("leavework").setExecutor(new LeaveWorkCommand(requestFarmer, hashMapFarmer, rank));
-		getCommand("getwork").setExecutor(new GetWorkCommand(rank, hashMapFarmer));
+		getCommand("joinwork").setExecutor(new JoinWorkCommand(requestFarmer, hashMapFarmer, rank, hashMapPecheur, requestPecheur));
+		getCommand("leavework").setExecutor(new LeaveWorkCommand(requestFarmer, hashMapFarmer, rank, hashMapPecheur));
+		getCommand("getwork").setExecutor(new GetWorkCommand(rank, hashMapFarmer, hashMapPecheur));
 		//Modération
 		getCommand("vanish").setExecutor(new VanishCommand(this,rank));
 		getCommand("cclear").setExecutor(new ClearChat(rank));
@@ -137,8 +147,10 @@ public class Main extends JavaPlugin implements Listener {
 
 		System.out.println("TownlandPlugin allume");
 
-		//remettre les métiers et xp de farmer en cas de relancement
-		farmer.setupFarmerXP();
+		//remettre les métiers et xp en cas de relancement
+		farmer.setupFarmer();
+		pecheur.setupPecheur();
+
 		//récupérer les coordonnées des melons sugarcannes et pumpkins
 		farmer.setupFarmerCo();
 
@@ -153,16 +165,13 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	public void onDisable() {
-		for (Player player : Bukkit.getOnlinePlayers()){
-			if (hashMapFarmer.getXpfarmer().containsKey(player.getUniqueId().toString())){
-				requestFarmer.changeXP("farmer", player, hashMapFarmer.getXpfarmer().get(player.getUniqueId().toString()));
-				hashMapFarmer.getXpfarmer().remove(player.getUniqueId().toString());
-			}else {
-			}
-		}
 
-		//save l'exp des joueurs métier farmeur
+		//save l'exp/work des joueurs métier
 		farmer.saveFarmerXP();
+		farmer.saveFarmerWork();
+		pecheur.SavePecheurWork();
+		pecheur.SavePecheurXP();
+
 		//save les coordonnées des melons sugarcannes et pumpkins
 		farmer.saveFarmerCo();
 

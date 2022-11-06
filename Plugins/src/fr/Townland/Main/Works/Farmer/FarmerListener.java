@@ -30,26 +30,22 @@ public class FarmerListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
-        if(!event.getPlayer().hasPlayedBefore()) {
-            requestFarmer.setupProfil(event.getPlayer());
-        }
-        hashMapFarmer.addWorkFarmer(event.getPlayer(), requestFarmer.getWork("farmer", event.getPlayer().getUniqueId()));
-        hashMapFarmer.addXPFarmer(event.getPlayer(), requestFarmer.getXP("farmer", event.getPlayer()));
+        hashMapFarmer.setupWorkFarmer(event.getPlayer(), requestFarmer.getWorkFarmer(event.getPlayer().getUniqueId()));
+        hashMapFarmer.addXPFarmer(event.getPlayer(), requestFarmer.getXPFarmer(event.getPlayer()));
     }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event){
-        if (hashMapFarmer.getXpfarmer().containsKey(event.getPlayer().getUniqueId().toString())){
-            requestFarmer.changeXP("farmer", event.getPlayer(), hashMapFarmer.getXpfarmer().get(event.getPlayer().getUniqueId().toString()));
+            requestFarmer.SetXPFarmer(event.getPlayer(), hashMapFarmer.getXpfarmer().get(event.getPlayer().getUniqueId().toString()));
+            requestFarmer.SetWorkFarmer(hashMapFarmer.getWorkFarmer(event.getPlayer()),event.getPlayer());
             hashMapFarmer.getXpfarmer().remove(event.getPlayer().getUniqueId().toString());
-        }
-        hashMapFarmer.removeWorkFarmer(event.getPlayer());
+            hashMapFarmer.removeWorkFarmer(event.getPlayer());
     }
 
     @EventHandler
     public void onKick(PlayerKickEvent event){
         if (hashMapFarmer.getXpfarmer().containsKey(event.getPlayer().getUniqueId().toString())){
-            requestFarmer.changeXP("farmer", event.getPlayer(), hashMapFarmer.getXpfarmer().get(event.getPlayer().getUniqueId().toString()));
+            requestFarmer.SetXPFarmer(event.getPlayer(), hashMapFarmer.getXpfarmer().get(event.getPlayer().getUniqueId().toString()));
             hashMapFarmer.getXpfarmer().remove(event.getPlayer().getUniqueId().toString());
         }
         hashMapFarmer.removeWorkFarmer(event.getPlayer());
@@ -60,7 +56,7 @@ public class FarmerListener implements Listener {
     public void onPlayerPosBlock(BlockPlaceEvent event){
 
         if (event.getBlock().getType() == Material.SUGAR_CANE || event.getBlock().getType() == Material.COCOA_BEANS){
-            if (!hashMapFarmer.getWork(event.getPlayer())){
+            if (!hashMapFarmer.getWorkFarmer(event.getPlayer())){
                 if (!rank.hasPowerSup(event.getPlayer(), 7)){
                     event.setCancelled(true);
                 }else {
@@ -95,10 +91,10 @@ public class FarmerListener implements Listener {
             if (!rank.hasPowerInf(event.getPlayer(), 6)) {
                 return;
             }
-            if (hashMapFarmer.getWork(event.getPlayer())) {
+            if (hashMapFarmer.getWorkFarmer(event.getPlayer())) {
                 return;
             }
-            if (!hashMapFarmer.getWork(event.getPlayer()) || rank.hasPowerInf(event.getPlayer(), 6)) {
+            if (!hashMapFarmer.getWorkFarmer(event.getPlayer()) || rank.hasPowerInf(event.getPlayer(), 6)) {
                 Action action = event.getAction();
 
                 if (action == Action.RIGHT_CLICK_BLOCK && event.getPlayer().getItemInHand().getType() ==  Material.WOODEN_HOE && event.getClickedBlock().getType().equals(Material.DIRT)) {
@@ -163,7 +159,7 @@ public class FarmerListener implements Listener {
     public void onPlayerBreakBLock(BlockBreakEvent event) {
 
         //supression dans la bdd les blocks cultures meme si pas farmeur
-        if (!hashMapFarmer.getWork(event.getPlayer())) {
+        if (!hashMapFarmer.getWorkFarmer(event.getPlayer())) {
             RemoveCoMelon(event);
             RemoveCoPumpkin(event);
             RemoveCoSugar(event);
@@ -171,7 +167,7 @@ public class FarmerListener implements Listener {
 
         if (event.getBlock().getType() == Material.WHEAT || event.getBlock().getType() == Material.CARROTS || event.getBlock().getType() == Material.POTATOES || event.getBlock().getType() == Material.BEETROOTS || event.getBlock().getType() == Material.PUMPKIN || event.getBlock().getType() == Material.MELON || event.getBlock().getType() == Material.SUGAR_CANE || event.getBlock().getType() == Material.COCOA) {
 
-            if (hashMapFarmer.getWork(event.getPlayer())) {
+            if (hashMapFarmer.getWorkFarmer(event.getPlayer())) {
                 Player player = event.getPlayer();
                 int XP = hashMapFarmer.getXPFarmer(player);
                 //lvl1
@@ -782,7 +778,7 @@ public class FarmerListener implements Listener {
         if (human instanceof Player) {
             Player player = (Player) human;
                 if (item.getType() == Material.BREAD) {
-                if (hashMapFarmer.getWork(player)) {
+                if (hashMapFarmer.getWorkFarmer(player)) {
                     int XP = hashMapFarmer.getXPFarmer(player);
 
                     //lvl1
@@ -848,7 +844,7 @@ public class FarmerListener implements Listener {
                             farmer.messageLevelUp(player, 35000000, "§2Bravo tu es passé niveau 20 tu as fini le niveau de farmeur GG !!", true);
                         }
                     }
-                    }else if (hashMapFarmer.getWork(player)) {
+                    }else if (hashMapFarmer.getWorkFarmer(player)) {
                     event.getInventory().setResult(new ItemStack(Material.AIR));
                 }
                 }

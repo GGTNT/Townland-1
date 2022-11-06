@@ -2,6 +2,7 @@ package fr.Townland.Main.Works;
 
 import fr.Townland.Main.TabList.Rank;
 import fr.Townland.Main.Works.Farmer.HashMapFarmer;
+import fr.Townland.Main.Works.Pecheur.HashMapPecheur;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,10 +13,12 @@ public class RemoveXpCommand implements CommandExecutor {
 
     private final Rank rank;
     private final HashMapFarmer hashMapFarmer;
+    private final HashMapPecheur hashMapPecheur;
 
-    public RemoveXpCommand(HashMapFarmer hashMapFarmer, Rank rank){
+    public RemoveXpCommand(HashMapFarmer hashMapFarmer, Rank rank, HashMapPecheur hashMapPecheur){
         this.hashMapFarmer = hashMapFarmer;
         this.rank = rank;
+        this.hashMapPecheur = hashMapPecheur;
     }
 
     @Override
@@ -27,7 +30,7 @@ public class RemoveXpCommand implements CommandExecutor {
                     if (rank.hasPowerSup(player, 7)) {
                         Player player1 = Bukkit.getPlayer(args[1]);
 
-                            if (args[0].equals("farmer")) {
+                            if (args[0].equalsIgnoreCase("farmer")) {
                                 int xp = Integer.parseInt(args[2]);
                                 int xps = hashMapFarmer.getXPFarmer(player1);
                                 if (xp > xps){
@@ -42,6 +45,20 @@ public class RemoveXpCommand implements CommandExecutor {
                                 return true;
                             }
 
+                            if (args[0].equalsIgnoreCase("pecheur")){
+                                int xp = Integer.parseInt(args[2]);
+                                int xps = hashMapPecheur.getXpPecheur(player1);
+                                if (xp > xps){
+                                    hashMapPecheur.setXppecheur( player1, hashMapPecheur.getXpPecheur(player1) - xps);
+                                    player.sendMessage("§2" + player1.getName() + " a perdu " + xps + "xp du métier pêcheur");
+                                    player1.sendMessage("§2" + player.getName() + " vous a retiré " + xps  + "xp du métier pêcheur");
+                                return true;
+                                }
+                                hashMapPecheur.setXppecheur( player1, hashMapPecheur.getXpPecheur(player1) - xp);
+                                player.sendMessage("§2" + player1.getName() + " a perdu " + xp + "xp du métier pêcheur");
+                                player1.sendMessage("§2" + player.getName() + " vous a retiré " + xp + "xp du métier pêcheur");
+                                return true;
+                            }
 
 
 

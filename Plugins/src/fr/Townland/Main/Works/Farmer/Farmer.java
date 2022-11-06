@@ -1,5 +1,6 @@
 package fr.Townland.Main.Works.Farmer;
 
+import fr.Townland.Main.Economie.DataEconomie.PlayerInfo;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -25,7 +26,89 @@ public class Farmer {
     public void messageLevelUp(Player player, int xp, String msg, Boolean itemRecompense){
         int xp1 = hashMapFarmer.getXPFarmer(player);
         if (xp1 >= xp){
+            PlayerInfo targetInfo = new PlayerInfo(player);
             player.sendMessage(msg);
+            switch (xp){
+                case 10000:
+                    targetInfo.addCoins(1000);
+                    break;
+
+                case 30000:
+                    targetInfo.addCoins(3000);
+                    break;
+
+                case 60000:
+                    targetInfo.addCoins(5000);
+                    break;
+
+                case 100000:
+                    targetInfo.addCoins(8000);
+                    break;
+
+                case 150000:
+                    targetInfo.addCoins(12000);
+                    break;
+
+                case 220000:
+                    targetInfo.addCoins(16000);
+                    break;
+
+                case 300000:
+                    targetInfo.addCoins(20000);
+                    break;
+
+                case 400000:
+                    targetInfo.addCoins(25000);
+                    break;
+
+                case 550000:
+                    targetInfo.addCoins(30000);
+                    break;
+
+                case 720000:
+                    targetInfo.addCoins(35000);
+                    break;
+
+                case 900000:
+                    targetInfo.addCoins(41000);
+                    break;
+
+                case 1100000:
+                    targetInfo.addCoins(47000);
+                    break;
+
+                case 1350000:
+                    targetInfo.addCoins(53000);
+                    break;
+
+                case 1600000:
+                    targetInfo.addCoins(60000);
+                    break;
+
+                case 1850000:
+                    targetInfo.addCoins(65000);
+                    break;
+
+                case 2100000:
+                    targetInfo.addCoins(72000);
+                    break;
+
+                case 2400000:
+                    targetInfo.addCoins(78000);
+                    break;
+
+                case 2700000:
+                    targetInfo.addCoins(86000);
+                    break;
+
+                case 3000000:
+                    targetInfo.addCoins(92000);
+                    break;
+
+                case 3500000:
+                    targetInfo.addCoins(100000);
+                    break;
+            }
 
             ItemStack oue1 = new ItemStack(Material.DIAMOND_HOE, 1);
             ItemMeta oue1M = oue1.getItemMeta();
@@ -158,14 +241,6 @@ public class Farmer {
         }
     }
 
-    public void setupFarmerXP(){
-
-        for (Player player : Bukkit.getOnlinePlayers()){
-            hashMapFarmer.addWorkFarmer(player, requestFarmer.getWork("farmer", player.getUniqueId()));
-            hashMapFarmer.addXPFarmer(player, requestFarmer.getXP("farmer", player));
-        }
-    }
-
     public void saveFarmerCo(){
 
         //enregistrer dans la bdd les co des Melons
@@ -205,13 +280,27 @@ public class Farmer {
         }
     }
 
+    public void setupFarmer(){
+
+        for (Player player : Bukkit.getOnlinePlayers()){
+            hashMapFarmer.addWorkFarmer(player, requestFarmer.getWorkFarmer(player.getUniqueId()));
+            hashMapFarmer.addXPFarmer(player, requestFarmer.getXPFarmer(player));
+        }
+    }
+
     public void saveFarmerXP(){
 
         for (Player player : Bukkit.getOnlinePlayers()){
             if (hashMapFarmer.getXpfarmer().containsKey(player.getUniqueId().toString())){
-                requestFarmer.changeXP("farmer", player, hashMapFarmer.getXpfarmer().get(player.getUniqueId().toString()));
-                hashMapFarmer.getXpfarmer().remove(player.getUniqueId().toString());
+                requestFarmer.SetXPFarmer(player, hashMapFarmer.getXpfarmer().get(player.getUniqueId().toString()));
             }
+        }
+    }
+
+    public void saveFarmerWork(){
+
+        for (Player player : Bukkit.getOnlinePlayers()){
+                requestFarmer.SetWorkFarmer(hashMapFarmer.getWorkFarmer(player), player);
         }
     }
 }
